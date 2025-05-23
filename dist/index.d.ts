@@ -590,9 +590,9 @@ declare class ByteReader extends ByteProcessor {
     toUint8Array(): Uint8Array;
 }
 
-declare const Buffer: {
+declare const bebyte: {
     writer: () => ByteWriter;
     reader: (buffer: Uint8Array) => ByteReader;
 };
 
-export { Buffer, ByteReader, ByteWriter };
+export { ByteReader, ByteWriter, bebyte as default };

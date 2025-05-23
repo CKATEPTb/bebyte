@@ -1,14 +1,14 @@
-import {Buffer, ByteReader, ByteWriter} from "@/index";
+import bebyte, {ByteReader, ByteWriter} from "@/index";
 
 describe("iN read/write", () => {
     const testValue = (bits: number, value: number | bigint) => {
-        const writer = Buffer.writer();
+        const writer = bebyte.writer();
         const methodName = `i${bits}` as keyof ByteWriter;
 
         (writer[methodName] as Function).call(writer, value);
         const buffer = writer.toUint8Array();
 
-        const reader = Buffer.reader(buffer);
+        const reader = bebyte.reader(buffer);
         const readMethod = `i${bits}` as keyof ByteReader;
         const result = (reader[readMethod] as Function).call(reader);
 
@@ -27,12 +27,12 @@ describe("iN read/write", () => {
 
 describe("validate edge cases", () => {
     it("should throw if i8 is out of bounds", () => {
-        const writer = Buffer.writer();
+        const writer = bebyte.writer();
         expect(() => writer.i8(300)).toThrow();
     });
 
     it("should throw if i40 receives too large value", () => {
-        const writer = Buffer.writer();
+        const writer = bebyte.writer();
         expect(() => writer.i40(0xFFFFFFFFFFFn)).toThrow();
     });
 });

@@ -29,9 +29,9 @@ yarn install CKATEPTb/bebyte#production
 
 ## Usage
 ```typescript
-import {Buffer} from "bebyte";
+import bebyte from "bebyte";
 
-const writer = Buffer.writer()
+const writer = bebyte.writer()
 writer.i8(0xAB)
 writer.i16(0xABCD)
 writer.i24(0xABCDEF)
@@ -42,7 +42,7 @@ writer.i56(0xABCDEF01234567n)
 writer.i64(0xABCDEF0123456789n)
 const array = writer.toUint8Array()
 
-const reader = Buffer.reader(array)
+const reader = bebyte.reader(array)
 console.log(reader.i8())  // 171
 console.log(reader.i16()) // 43981
 console.log(reader.i24()) // 11259375
