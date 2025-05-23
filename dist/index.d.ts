@@ -7,16 +7,16 @@
 declare abstract class ByteProcessor {
     protected _offset: number;
     /**
+     * The current byte offset used for reading from or writing to a buffer.
+     * Can be used to control the read/write position manually.
+     */
+    get offset(): number;
+    /**
      * Sets the current byte offset (cursor) to a new position.
      *
      * @param {number} value - The new offset position.
      */
     set offset(value: number);
-    /**
-     * The current byte offset used for reading from or writing to a buffer.
-     * Can be used to control the read/write position manually.
-     */
-    get offset(): number;
     /**
      * Converts the internal state or buffer content into a Uint8Array.
      *
@@ -35,14 +35,6 @@ declare abstract class ByteProcessor {
  */
 declare class ByteWriter extends ByteProcessor {
     private readonly buffer;
-    /**
-     * Validates that a given value fits within a specified unsigned bit-length.
-     *
-     * @param {number} value - The value to validate.
-     * @param {number} bits - Bit size (1–64) to validate against.
-     * @throws {Error} If the value is out of bounds for the given bit-length.
-     */
-    private validateBitLength;
     /**
      * Writes an unsigned 1-bit integer into the buffer using 1 byte (i8) in **Big Endian** order
      *
@@ -504,6 +496,14 @@ declare class ByteWriter extends ByteProcessor {
      * @returns {Uint8Array} A finalized byte array representing all written data.
      */
     toUint8Array(): Uint8Array;
+    /**
+     * Validates that a given value fits within a specified unsigned bit-length.
+     *
+     * @param {number} value - The value to validate.
+     * @param {number} bits - Bit size (1–64) to validate against.
+     * @throws {Error} If the value is out of bounds for the given bit-length.
+     */
+    private validateBitLength;
 }
 
 /**
