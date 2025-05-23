@@ -38,19 +38,19 @@ writer.i24(0xABCDEF)
 writer.i32(0xABCDEF01)
 writer.i40(0xABCDEF0123n)
 writer.i48(0xABCDEF012345n)
-writer.i54(0xABCDEF01234567n)
+writer.i56(0xABCDEF01234567n)
 writer.i64(0xABCDEF0123456789n)
 const array = writer.toUint8Array()
 
 const reader = Buffer.reader(array)
-reader.i8()
-reader.i16()
-reader.i24()
-reader.i32()
-reader.i40()
-reader.i48()
-reader.i56()
-reader.i64()
+console.log(reader.i8()) // 171
+console.log(reader.i16()) // 43981
+console.log(reader.i24()) // 11259375
+console.log(reader.i32()) // 2882400001
+console.log(reader.i40()) // 737894400291n
+console.log(reader.i48()) // 188900966474565n
+console.log(reader.i56()) // 48358647417488743n
+console.log(reader.i64()) // 12379813738877118345n
 ```
 
 ## Contributing
