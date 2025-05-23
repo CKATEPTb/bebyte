@@ -43,7 +43,7 @@ writer.i64(0xABCDEF0123456789n)
 const array = writer.toUint8Array()
 
 const reader = Buffer.reader(array)
-console.log(reader.i8()) // 171
+console.log(reader.i8())  // 171
 console.log(reader.i16()) // 43981
 console.log(reader.i24()) // 11259375
 console.log(reader.i32()) // 2882400001
