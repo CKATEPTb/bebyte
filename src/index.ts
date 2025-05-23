@@ -6,7 +6,8 @@ export {
     type ByteReader
 }
 
-export const Buffer = {
+const bebyte = {
     writer: () => new ByteWriter(),
     reader: (buffer: Uint8Array) => new ByteReader(buffer)
 }
+export default bebyte

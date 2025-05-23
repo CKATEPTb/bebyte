@@ -1,6 +1,6 @@
 {
   "name": "bebyte",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight library for reading and writing unsigned integers (UInt) from 1 to 64 bits in Big Endian format. Supports precise binary serialization with byte-level control.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
