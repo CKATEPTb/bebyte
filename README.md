@@ -12,19 +12,19 @@ The **bebyte** is a lightweight TypeScript library for reading and writing unsig
 To install the package using **npm**:
 
 ```bash
-npm install CKATEPTb/bebyte#production
+npm install bebyte
 ```
 
 To install the package using **pnpm**:
 
 ```bash
-pnpm install CKATEPTb/bebyte#production
+pnpm install bebyte
 ```
 
 To install the package using **yarn**:
 
 ```bash
-yarn install CKATEPTb/bebyte#production
+yarn install bebyte
 ```
 
 ## Usage
