@@ -1,23 +1,22 @@
 {
   "name": "bebyte",
-  "version": "1.0.2",
-  "description": "Lightweight library for reading and writing unsigned integers (UInt) from 1 to 64 bits in Big Endian format. Supports precise binary serialization with byte-level control.",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "version": "2.0.0",
+  "description": "Fast, strict big-endian unsigned integer reader and writer for Uint8Array data.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts",
-    "start": "tsx src/start.ts",
-    "start:watch": "tsx watch src/start.ts",
-    "test": "jest --config jest.config.ts",
-    "test:watch": "jest --config jest.config.ts --watch"
+    "test": "tsc -p tsconfig.json --noEmit && vitest run",
+    "build": "node scripts/clean-dist.mjs && vite build && tsc -p tsconfig.build.json --emitDeclarationOnly && node scripts/rewrite-dts-aliases.mjs && node scripts/verify-package.mjs"
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,6 @@
   },
   "keywords": [
     "big-endian",
-    "bitwise",
     "binary",
     "buffer",
     "serialization",
@@ -34,33 +32,33 @@
     "dataview",
     "uint",
     "uint8array",
-    "bitfield",
     "byte",
     "bytes",
-    "i64",
-    "bitstream",
     "typescript",
-    "be",
     "bytewriter",
     "bytereader",
     "binary-protocol",
-    "binary-parser",
-    "be-byte"
+    "binary-parser"
   ],
   "author": "CKATEPTb, FakeIvchenko",
-  "license": "LGPL-3.0-only",
-  "devDependencies": {
-    "@types/jest": "^29.5.14",
-    "@types/node": "^22.15.17",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.3.2",
-    "ts-node": "^10.9.2",
-    "tsup": "^8.4.0",
-    "tsx": "^4.19.4",
-    "typescript": "^5.8.3"
-  },
-  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39",
+  "license": "MIT",
+  "sideEffects": false,
   "files": [
-    "dist"
-  ]
+    "dist",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "packageManager": "npm@11.11.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.5",
+    "vitest": "^4.1.10"
+  }
 }
