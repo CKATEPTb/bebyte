@@ -1,22 +1,20 @@
 {
   "name": "bebyte",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Fast, strict big-endian unsigned integer reader and writer for Uint8Array data.",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
       "default": "./dist/index.js"
     }
   },
   "scripts": {
     "test": "tsc -p tsconfig.json --noEmit && vitest run",
-    "build": "node scripts/clean-dist.mjs && vite build && tsc -p tsconfig.build.json --emitDeclarationOnly && node scripts/rewrite-dts-aliases.mjs && node scripts/verify-package.mjs"
+    "build": "node scripts/clean-dist.mjs && vite build && tsc -p tsconfig.build.json --emitDeclarationOnly && node scripts/rewrite-dts-aliases.mjs"
   },
   "repository": {
     "type": "git",

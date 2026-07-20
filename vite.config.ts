@@ -4,7 +4,7 @@ import {defineConfig} from "vite";
 const sourceRoot = fileURLToPath(new URL("./src", import.meta.url));
 const sourceEntry = fileURLToPath(new URL("./src/index.ts", import.meta.url));
 
-/** Production library build for ESM and CommonJS consumers. */
+/** Production ESM library build. */
 export default defineConfig({
     resolve: {
         alias: {
@@ -19,8 +19,8 @@ export default defineConfig({
         sourcemap: true,
         lib: {
             entry: sourceEntry,
-            formats: ["es", "cjs"],
-            fileName: format => format === "es" ? "index.js" : "index.cjs"
+            formats: ["es"],
+            fileName: "index"
         },
         rolldownOptions: {
             treeshake: true,
