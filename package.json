@@ -1,6 +1,6 @@
 {
   "name": "bebyte",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Fast, strict big-endian unsigned integer reader and writer for Uint8Array data.",
   "type": "module",
   "main": "./dist/index.js",
